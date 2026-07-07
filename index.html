@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graduation Surprise ❤️</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Floating Hearts Background -->
+<div id="heartContainer"></div>
+<!-- Welcome Screen -->
+<section id="welcomeScreen">
+<div class="card">
+<h1 class="graduationEmoji">
+                🎓
+</h1>
+<h2 class="title">
+                I have a little surprise for you...
+</h2>
+<button id="openButton">
+                Open ❤️
+</button>
+</div>
+</section>
+<!-- Congratulations Screen -->
+<section id="congratulationsScreen" class="hidden">
+<div class="messageCard">
+<h1 id="congratsTitle">
+                🎉 Congratulations, My Princess ❤️
+</h1>
+<p id="congratsMessage">
+                I'm really proud of you.
+<br>
+                This success is the result of your hard work.
+<br>
+                You truly deserve this beautiful moment.
+</p>
+<button id="continueButton">
+                Continue ❤️
+</button>
+</div>
+</section>
+<!-- Interactive Love Messages Game -->
+<section id="heartGame" class="hidden">
+<div class="heartGameContainer">
+<h1>
+              ❤️ Find my messages ❤️
+</h1>
+<p>
+                Click every heart to discover your surprises.
+</p>
+<!-- Interactive Hearts Area -->
+<div id="interactiveHeartContainer"></div>
+<!-- Message Popup -->
+<div id="messageBox" class="hidden">
+<p id="heartMessage"></p>
+</div>
+<!-- Final Button -->
+<button id="finalButton" class="hidden">
+                Open Final Message 💌
+</button>
+</div>
+</section>
+<!-- Final Letter Section -->
+<section id="finalLetterScreen" class="hidden">
+<div class="envelope">
+<div id="flowerContainer"></div>
+<div id="sparkleContainer"></div>
+<div class="letter">
+<h1>
+                  To my 7 minute ❤️
+</h1>
+<p id="loveLetterText"></p>
+<img
+id="couplePhoto"
+src="assets/images/couple-photo.jpg"
+alt="Our Photo">
+</div>
+</div>
+</section>
+<!-- Background Romantic Music -->
+<audio id="bgMusic" src="assets/music/until-i-found-you.m4a" loop preload="auto"></audio>
+<script src="script.js"></script>
+</body>
+</html>
