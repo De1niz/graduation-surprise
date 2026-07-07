@@ -4,7 +4,7 @@ const welcomeScreen = document.getElementById("welcomeScreen");
 const congratulationsScreen = document.getElementById("congratulationsScreen");
 const congratsTitle = document.getElementById("congratsTitle");
 const congratsMessage = document.getElementById("congratsMessage");
-const continueButton = document.getElementById("continueButton"); // EKLENDİ
+const continueButton = document.getElementById("continueButton"); // ADDED
 const heartGame = document.getElementById("heartGame");
 const interactiveHeartContainer = document.getElementById("interactiveHeartContainer");
 const messageBox = document.getElementById("messageBox");
@@ -14,7 +14,7 @@ const finalLetterScreen = document.getElementById("finalLetterScreen");
 const loveLetterText = document.getElementById("loveLetterText");
 const flowerContainer = document.getElementById("flowerContainer");
 const sparkleContainer = document.getElementById("sparkleContainer");
-const bgMusic = document.getElementById("bgMusic"); // EKLENDİ
+const bgMusic = document.getElementById("bgMusic"); // ADDED
 
 // =================================
 // Floating Background Hearts
@@ -41,7 +41,6 @@ function createHeart() {
     }, 7000);
 }
 
-
 setInterval(createHeart, 300);
 
 // =================================
@@ -58,13 +57,27 @@ const messages = [
 
 let foundHearts = 0;
 
+
+const zPositions = [
+    { left: "8%", top: "5%" },
+    { left: "92%", top: "5%" },
+    { left: "64%", top: "35%" },
+    { left: "37%", top: "64%" },
+    { left: "8%", top: "95%" },
+    { left: "92%", top: "95%" }
+];
+
 function createInteractiveHearts() {
-    messages.forEach((message) => {
+    messages.forEach((message, index) => {
         const heart = document.createElement("div");
         heart.innerHTML = "❤️";
         heart.className = "interactive-heart";
-        heart.style.left = Math.random() * 500 + "px";
-        heart.style.top = Math.random() * 300 + "px";
+
+        const pos = zPositions[index] || { left: "50%", top: "50%" };
+        heart.style.left = pos.left;
+        heart.style.top = pos.top;
+        heart.style.marginLeft = "-22px";
+        heart.style.marginTop = "-22px";
 
         heart.addEventListener("click", () => {
             heartMessage.innerHTML = message;
@@ -106,10 +119,10 @@ function fadeMusicVolume(targetVolume, duration) {
 // Open Surprise (welcome -> congratulations)
 // =================================
 openButton.addEventListener("click", () => {
-    // Müziği kullanıcı tıklamasıyla başlat (tarayıcı otomatik oynatma kısıtlaması için gerekli)
+    
     bgMusic.volume = 0.3;
     bgMusic.play().catch((err) => {
-        console.log("Müzik otomatik başlatılamadı:", err);
+        console.log("The music could not be started automatically:", err);
     });
 
     welcomeScreen.style.opacity = "0";
@@ -130,8 +143,7 @@ openButton.addEventListener("click", () => {
             congratsMessage.style.transform = "translateY(0)";
         }, 900);
 
-       
-
+        
     }, 700);
 });
 
@@ -142,10 +154,10 @@ continueButton.addEventListener("click", () => {
     congratulationsScreen.style.opacity = "0";
 
     setTimeout(() => {
-        congratulationsScreen.classList.add("hidden"); // önceki ekran artık gerçekten gizleniyor
+        congratulationsScreen.classList.add("hidden"); 
         heartGame.classList.remove("hidden");
         createInteractiveHearts();
-    }, 1000); // CSS'teki transition:1s ile senkron
+    }, 1000); 
 });
 
 // =================================
@@ -188,7 +200,7 @@ I will always support you,
 stand beside you,
 and love you.
 
-Congratulations my Angel ❤️
+Congratulations My Angel! ❤️
 
 `;
 
